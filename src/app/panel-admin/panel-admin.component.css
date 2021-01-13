@@ -1,0 +1,31 @@
+.cuerpo {
+    -webkit-box-shadow: -2px 2px 22px -6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px 2px 22px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: -2px 2px 22px -6px rgba(0, 0, 0, 0.75);
+    padding: 10px;
+}
+
+.procesos {
+    padding: 10px;
+}
+
+.cerrar-sesion {
+    color: white;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: square;
+    list-style: none;
+    padding: 0px;
+}
+
+.menu {
+    text-decoration: none;
+    cursor: pointer;
+    color: teal;
+}
+
+li {
+    margin-bottom: 20px;
+}

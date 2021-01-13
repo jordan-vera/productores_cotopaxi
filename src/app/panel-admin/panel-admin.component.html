@@ -1,0 +1,42 @@
+<br>
+<div class="container">
+    <div class="cuerpo">
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    Productores de Cotopaxi - Panel administrador
+                </a>
+                <div style="text-align: right;">
+                    <label class="cerrar-sesion" [routerLink]="['/']">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                    </label>
+                </div>
+                
+            </div>
+        </nav>
+        <div class="container border">
+            <div class="row">
+                <div class="col-lg-2 border-end">
+                    <br>
+                    <ul>
+                        <li>
+                            <a class="menu">Actividades</a> 
+                        </li>
+                        <li>
+                            <a class="menu">Agregar productores</a>
+                        </li>
+                        <li>
+                            <a class="menu">Consultar productores</a>
+                        </li>
+                        <li>
+                            <a class="menu">Mis datos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-10">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
