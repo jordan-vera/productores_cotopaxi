@@ -1,4 +1,5 @@
 <br>
+
 <div class="container">
     <div class="cuerpo">
         <nav class="navbar navbar-dark bg-primary">
@@ -11,7 +12,6 @@
                         <i class="fas fa-sign-out-alt"></i> Cerrar sesión
                     </label>
                 </div>
-                
             </div>
         </nav>
         <div class="container border">
@@ -20,10 +20,12 @@
                     <br>
                     <ul>
                         <li>
-                            <a class="menu">Actividades</a> 
+                            <a class="menu" [routerLink]="['/panel-admin/actividades']"
+                                [queryParams]="{idusuario: idusuario}">Actividades</a>
                         </li>
                         <li>
-                            <a class="menu">Agregar productores</a>
+                            <a class="menu" [routerLink]="['/panel-admin/agregar-productores']"
+                                [queryParams]="{idusuario: idusuario}">Agregar productores</a>
                         </li>
                         <li>
                             <a class="menu">Consultar productores</a>

@@ -1,0 +1,33 @@
+.col-formulario label {
+    margin-top: 20px;
+}
+
+#file-upload-imagen1 {
+    display: none;
+}
+
+.subir-image {
+    margin-top: 3px;
+    padding: 5px 10px;
+    color: #fff;
+    border: 0px solid #fff;
+    border: solid gray 2px;
+    border-style: dashed;
+    width: 170px;
+    height: 140px;
+}
+
+.subir-image img {
+    width: 140px;
+    height: auto;
+}
+
+.delete-image {
+    position: absolute;
+    top: 1px;
+    right: 14px;
+    background-color: rgba(201, 198, 198, 0.877);
+    padding-left: 4px;
+    padding-right: 5px;
+    color: red;
+}
