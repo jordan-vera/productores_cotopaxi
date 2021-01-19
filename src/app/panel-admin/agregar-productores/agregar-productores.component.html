@@ -78,14 +78,22 @@
                 <div class="col-lg-2"></div>
                 <div class="col-lg-5">
                     <label>Longitud:</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" class="form-control" name="longitud" #longitud="ngModel" [(ngModel)]="productorCreate.longitud" required>
                 </div>
                 <div class="col-lg-5">
                     <label>Latitud:</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" class="form-control" name="latitu" #latitud="ngModel" [(ngModel)]="productorCreate.latitud" required>
                 </div>
             </div>
         </div>
+    </div>
+
+    <br>
+
+    <div class="border p-2 text-end">
+        <button class="btn btn-primary" (click)="guardarContacto()">
+            <i class="far fa-save"></i> Guardar Productor
+        </button>
     </div>
 
 </div>

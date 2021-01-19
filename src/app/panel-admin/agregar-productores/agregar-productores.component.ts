@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Actividades } from 'src/app/modelo/Actividades';
 import { Canton } from 'src/app/modelo/Canton';
 import { Productor } from 'src/app/modelo/Productor';
@@ -6,6 +6,10 @@ import { ActividadesService } from 'src/app/servicios/actividades.service';
 import { CantonService } from 'src/app/servicios/canton.service';
 import { UUID } from 'angular2-uuid';
 import { Contacto } from 'src/app/modelo/Contacto';
+import { ContactoService } from 'src/app/servicios/contacto.service';
+import { ProductoresService } from 'src/app/servicios/productores.service';
+import { Fecha } from 'src/app/servicios/fecha.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-agregar-productores',
@@ -17,7 +21,7 @@ export class AgregarProductoresComponent implements OnInit {
   public archivoExtension1: boolean = true;
   imageSrc1: any;
 
-  public center = { lat: -2.0000000, lng: -77.5000000 };
+  public center = { lat: -0.903170592, lng: -78.868795865 };
   markerOptions = { draggable: true };
   markerPositions: google.maps.LatLngLiteral[] = [];
   public zoom = 6;
@@ -31,12 +35,48 @@ export class AgregarProductoresComponent implements OnInit {
 
   constructor(
     private _cantonService: CantonService,
-    private _actividadService: ActividadesService
+    private _actividadService: ActividadesService,
+    private _contactoService: ContactoService,
+    private _productoresService: ProductoresService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
     this.mostrarCantones();
     this.mostrarActividades();
+  }
+
+  guardarContacto(): void {
+    this._contactoService.create(this.contactoCreate).subscribe(
+      response => {
+        let idcontacto = response.response;
+        this.guardarProductor(idcontacto);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+  guardarProductor(idcontacto: number): void {
+    console.log(idcontacto);
+    this.productorCreate.fecha_registro = Fecha.fechaActual() + ' ' + Fecha.horaActual();
+    this.productorCreate.idcontacto = idcontacto;
+    this._productoresService.create(this.productorCreate).subscribe(
+      response => {
+        this.toastr.success('Actividad agregada correctamente!', 'Hecho!');
+        this.limpiar();
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+  limpiar(): void {
+    this.limpiarImagen1();
+    this.productorCreate = new Productor(0, 0, 0, 0, '', '', '', '', '', '', '', '');
+    this.contactoCreate = new Contacto(0, '', '', '');
   }
 
   addMarker(event: google.maps.MouseEvent) {
@@ -59,7 +99,7 @@ export class AgregarProductoresComponent implements OnInit {
       this.img1 = true;
       this.readURL1(event);
       this.archivoExtension1 = true;
-      this.productorCreate.portada = UUID.UUID();
+      this.productorCreate.portada = UUID.UUID() + '.' + extension;
       if (files && file) {
         var reader = new FileReader();
         reader.onload = this._handleReaderLoaded1.bind(this);

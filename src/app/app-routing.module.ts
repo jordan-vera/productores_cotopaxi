@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { PanelAdminComponent } from './panel-admin/panel-admin.component';
 import { ActividadesComponent } from './panel-admin/actividades/actividades.component';
 import { AgregarProductoresComponent } from './panel-admin/agregar-productores/agregar-productores.component';
+import { ConsultarProductoresComponent } from './panel-admin/consultar-productores/consultar-productores.component';
 
 const routes: Routes = [
   {
@@ -24,13 +25,21 @@ const routes: Routes = [
     component: PanelAdminComponent,
     children: [
       {
+        path: '',
+        component: ActividadesComponent
+      },
+      {
         path: 'actividades',
         component: ActividadesComponent
       },
       {
         path: 'agregar-productores',
         component: AgregarProductoresComponent
-      }
+      },
+      {
+        path: 'consultar-productores',
+        component: ConsultarProductoresComponent
+      },
     ]
   }
 ];

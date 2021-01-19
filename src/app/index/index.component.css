@@ -26,3 +26,108 @@
 .logo-image {
     height: 45px;
 }
+
+.img-productor {
+    height: 140px;
+    max-width: 100%;
+}
+
+.tarjeta-productores {
+    padding: 2px;
+}
+
+.tarjeta-productores button {
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.nombre-productor {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.descripcion-rancho {
+    font-size: 13px;
+    margin: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn {
+    text-align: right;
+}
+
+.bt {
+    padding-right: 10px;
+}
+
+/* carrusel 2 */
+
+.testimonial-group2 {
+    position: relative !important;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.testimonial-group2>.row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow: scroll;
+    overflow: hidden;
+}
+
+.testimonial-group2>.row>.col-6 {
+    flex: 0 0 auto;
+}
+
+.testimonial-group2,
+.btn-izquierda {
+    position: absolute;
+}
+.btn-izquierda {
+    left: 0px;
+    top: 120px;
+}
+.btn-izquierda button {
+    padding: 10px;
+    font-size: 25px;
+}
+.btn-izquierda button:hover {
+    padding: 10px;
+    font-size: 27px;
+    background-color: rgb(218, 216, 216);
+}
+.btn-derecha {
+    position: absolute;
+    right: 0px;
+    top: 120px;
+}
+.btn-derecha button {
+    padding: 10px;
+    font-size: 25px;
+}
+.btn-derecha button:hover {
+    padding: 10px;
+    font-size: 27px;
+    background-color: rgb(218, 216, 216);
+}
+
+.fila-actividades img {
+    height: 70px;
+}
+
+.fila-actividades h5 {
+    margin-top: 15px;
+}

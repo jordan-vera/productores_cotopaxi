@@ -16,10 +16,12 @@ import { AdministradorService } from './servicios/administrador.service';
 import { ActividadesService } from './servicios/actividades.service';
 import { CantonService } from './servicios/canton.service';
 import { ContactoService } from './servicios/contacto.service';
+import { ProductoresService } from './servicios/productores.service';
 
 import { PanelAdminComponent } from './panel-admin/panel-admin.component';
 import { ActividadesComponent } from './panel-admin/actividades/actividades.component';
 import { AgregarProductoresComponent } from './panel-admin/agregar-productores/agregar-productores.component';
+import { ConsultarProductoresComponent } from './panel-admin/consultar-productores/consultar-productores.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { AgregarProductoresComponent } from './panel-admin/agregar-productores/a
     LoginComponent,
     PanelAdminComponent,
     ActividadesComponent,
-    AgregarProductoresComponent
+    AgregarProductoresComponent,
+    ConsultarProductoresComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { AgregarProductoresComponent } from './panel-admin/agregar-productores/a
     AdministradorService,
     ActividadesService,
     CantonService,
-    ContactoService
+    ContactoService,
+    ProductoresService
   ],
   bootstrap: [AppComponent],
 
