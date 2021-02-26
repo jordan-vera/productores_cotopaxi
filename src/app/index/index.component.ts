@@ -14,6 +14,15 @@ export class IndexComponent implements OnInit {
   public productoresLamana: Array<any> = [];
   public productoresPangua: Array<any> = [];
 
+  public latacunga: boolean = true;
+  public lamana: boolean = true;
+  public pangua: boolean = true;
+  public pujili: boolean = true;
+  public salcedo: boolean = true;
+  public saquisili: boolean = true;
+
+  public opcionCanton: string = '';
+
   constructor() { }
 
   public onPreviousSearchPosition2(): void {
@@ -40,6 +49,51 @@ export class IndexComponent implements OnInit {
     this.panel4.nativeElement.scrollTo({ left: (this.panel4.nativeElement.scrollLeft + 180), behavior: 'smooth' });
   }
 
+  byCanton(canton: string): void {
+    if(canton == 'latacunga') {
+      this.lamana = false;
+      this.pangua = false;
+      this.pujili = false;
+      this.salcedo = false;
+      this.saquisili = false;
+      this.latacunga = true;
+    } else if (canton == 'lamana') {
+      this.pangua = false;
+      this.latacunga = false;
+      this.lamana = true;
+      this.pujili = false;
+      this.salcedo = false;
+      this.saquisili = false;
+    } else if (canton == 'pangua') {
+      this.pangua = true;
+      this.latacunga = false;
+      this.lamana = false;
+      this.pujili = false;
+      this.salcedo = false;
+      this.saquisili = false;
+    } else if (canton == 'pujili'){
+      this.pangua = false;
+      this.latacunga = false;
+      this.lamana = false;
+      this.pujili = true;
+      this.salcedo = false;
+      this.saquisili = false;
+    }else if (canton == 'salcedo'){
+      this.pangua = false;
+      this.latacunga = false;
+      this.lamana = false;
+      this.pujili = false;
+      this.salcedo = true;
+      this.saquisili = false;
+    } else if (canton == 'saquisili'){
+      this.pangua = false;
+      this.latacunga = false;
+      this.lamana = false;
+      this.pujili = false;
+      this.salcedo = false;
+      this.saquisili = true;
+    }
+  }
 
   ngOnInit(): void {
     this.productoresLatacunga = [
@@ -71,7 +125,7 @@ export class IndexComponent implements OnInit {
       {
         nombre: "Rancho Azul",
         descripcion: "Yanahuco es uno de los ranchos más importantes productores de productos lacteos.",
-        image: "https://lh3.googleusercontent.com/proxy/UGDoFDslgzQ9BBdV3_e7PpjOdmhjbsv5x47_YKonRKNzI5Xpbih7w2wUVjWgyukfoAvZe_P-bY4VuqEVErHvV_CDNmq9ZSdTEn5jGw"
+        image: "https://image.freepik.com/foto-gratis/rancho-fenix-latacunga-cotopaxi-ecuador-12-agosto-2016-jinete-doma-caballo_133548-375.jpg"
       },
       {
         nombre: "Rancho Tres hermanos",
@@ -104,7 +158,7 @@ export class IndexComponent implements OnInit {
       {
         nombre: "Rancho Azul",
         descripcion: "Yanahuco es uno de los ranchos más importantes productores de productos lacteos.",
-        image: "https://lh3.googleusercontent.com/proxy/UGDoFDslgzQ9BBdV3_e7PpjOdmhjbsv5x47_YKonRKNzI5Xpbih7w2wUVjWgyukfoAvZe_P-bY4VuqEVErHvV_CDNmq9ZSdTEn5jGw"
+        image: "https://image.freepik.com/foto-gratis/rancho-fenix-latacunga-cotopaxi-ecuador-12-agosto-2016-jinete-doma-caballo_133548-375.jpg"
       },
       {
         nombre: "Granja la Abuelita",
@@ -174,7 +228,7 @@ export class IndexComponent implements OnInit {
       {
         nombre: "Rancho Azul",
         descripcion: "Yanahuco es uno de los ranchos más importantes productores de productos lacteos.",
-        image: "https://lh3.googleusercontent.com/proxy/UGDoFDslgzQ9BBdV3_e7PpjOdmhjbsv5x47_YKonRKNzI5Xpbih7w2wUVjWgyukfoAvZe_P-bY4VuqEVErHvV_CDNmq9ZSdTEn5jGw"
+        image: "https://image.freepik.com/foto-gratis/rancho-fenix-latacunga-cotopaxi-ecuador-12-agosto-2016-jinete-doma-caballo_133548-375.jpg"
       },
       {
         nombre: "Granja la Abuelita",

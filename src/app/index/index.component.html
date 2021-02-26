@@ -19,10 +19,20 @@
                 <div class="col-lg-2">
                     <img src="../../assets/images/logo.jpg" class="logo-image">
                 </div>
-                <div class="col-lg-5 col-btn">
+                <div class="col-lg-3 col-btn">
                     <button class="btn btn-outline-info" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Actividades</button>
-                    <button class="btn btn-outline-info">Cantones</button>
+                </div>
+                <div class="col-lg-2">
+                    <select class="form-control" (change)="byCanton(opcionCanton)" name="canton" #canton="ngModel"
+                        [(ngModel)]="opcionCanton">
+                        <option value="latacunga">LATACUNGA</option>
+                        <option value="lamana">LA MANÁ</option>
+                        <option value="pangua">PANGUA</option>
+                        <option value="pangua">PUJILÍ</option>
+                        <option value="pangua">SALCEDO</option>
+                        <option value="pangua">SAQUISILÍ</option>
+                    </select>
                 </div>
                 <div class="col-lg-5">
                     <div class="input-group mb-3">
@@ -39,181 +49,194 @@
 
         <br>
 
-        <h5>Productotes de Latacunga</h5>
-        <div class="testimonial-group2 border-bottom">
-            <div class="row" #panel2>
-                <div class="col-lg-2" *ngFor="let x of productoresLatacunga">
-                    <div class="tarjeta-productores">
-                        <img src="{{x.image}}" class="img-productor">
-                        <p class="nombre-productor">
-                            {{x.nombre}}
-                        </p>
-                        <p class="descripcion-rancho text-justify">
-                            {{x.descripcion}}
-                        </p>
-                        <button class="btn btn-outline-info btn-sm"> Ver más</button>
+        <div *ngIf="latacunga">
+            <h5>Productotes de Latacunga</h5>
+            <div class="testimonial-group2 border-bottom">
+                <div class="row" #panel2>
+                    <div class="col-lg-2" *ngFor="let x of productoresLatacunga">
+                        <div class="tarjeta-productores">
+                            <img src="{{x.image}}" class="img-productor">
+                            <p class="nombre-productor">
+                                {{x.nombre}}
+                            </p>
+                            <p class="descripcion-rancho text-justify">
+                                {{x.descripcion}}
+                            </p>
+                            <button class="btn btn-outline-info btn-sm"> Ver más</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="btn-izquierda">
-                <button class="btn rounded-circle" (click)="onPreviousSearchPosition2()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-            </div>
-            <div class="btn-derecha">
-                <button class="btn rounded-circle" (click)="onNextSearchPosition2()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <div class="btn-izquierda">
+                    <button class="btn rounded-circle" (click)="onPreviousSearchPosition2()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="btn-derecha">
+                    <button class="btn rounded-circle" (click)="onNextSearchPosition2()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
         <br>
 
-        <h5>Productotes de La Maná</h5>
-        <div class="testimonial-group2">
-            <div class="row" #panel3>
-                <div class="col-lg-2" *ngFor="let x of productoresLamana">
-                    <div class="tarjeta-productores">
-                        <img src="{{x.image}}" class="img-productor">
-                        <p class="nombre-productor">
-                            {{x.nombre}}
-                        </p>
-                        <p class="descripcion-rancho text-justify">
-                            {{x.descripcion}}
-                        </p>
-                        <button class="btn btn-outline-info btn-sm"> Ver más</button>
+        <div *ngIf="lamana">
+            <h5>Productotes de La Maná</h5>
+            <div class="testimonial-group2">
+                <div class="row" #panel3>
+                    <div class="col-lg-2" *ngFor="let x of productoresLamana">
+                        <div class="tarjeta-productores">
+                            <img src="{{x.image}}" class="img-productor">
+                            <p class="nombre-productor">
+                                {{x.nombre}}
+                            </p>
+                            <p class="descripcion-rancho text-justify">
+                                {{x.descripcion}}
+                            </p>
+                            <button class="btn btn-outline-info btn-sm"> Ver más</button>
+                        </div>
                     </div>
                 </div>
+                <div class="btn-izquierda">
+                    <button class="btn rounded-circle" (click)="onPreviousSearchPosition3()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="btn-derecha">
+                    <button class="btn rounded-circle" (click)="onNextSearchPosition3()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
-            <div class="btn-izquierda">
-                <button class="btn rounded-circle" (click)="onPreviousSearchPosition3()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-            </div>
-            <div class="btn-derecha">
-                <button class="btn rounded-circle" (click)="onNextSearchPosition3()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+        </div>
+
+
+        <br>
+
+        <div *ngIf="pangua">
+            <h5>Productotes de Pangua</h5>
+            <div class="testimonial-group2">
+                <div class="row" #panel4>
+                    <div class="col-lg-2" *ngFor="let x of productoresPangua">
+                        <div class="tarjeta-productores">
+                            <img src="{{x.image}}" class="img-productor">
+                            <p class="nombre-productor">
+                                {{x.nombre}}
+                            </p>
+                            <p class="descripcion-rancho text-justify">
+                                {{x.descripcion}}
+                            </p>
+                            <button class="btn btn-outline-info btn-sm"> Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-izquierda">
+                    <button class="btn rounded-circle" (click)="onPreviousSearchPosition4()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="btn-derecha">
+                    <button class="btn rounded-circle" (click)="onNextSearchPosition4()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
         <br>
 
-        <h5>Productotes de Pangua</h5>
-        <div class="testimonial-group2">
-            <div class="row" #panel4>
-                <div class="col-lg-2" *ngFor="let x of productoresPangua">
-                    <div class="tarjeta-productores">
-                        <img src="{{x.image}}" class="img-productor">
-                        <p class="nombre-productor">
-                            {{x.nombre}}
-                        </p>
-                        <p class="descripcion-rancho text-justify">
-                            {{x.descripcion}}
-                        </p>
-                        <button class="btn btn-outline-info btn-sm"> Ver más</button>
+        <div *ngIf="pujili">
+            <h5>Productotes de Pujilí</h5>
+            <div class="testimonial-group2 border-bottom">
+                <div class="row" #panel2>
+                    <div class="col-lg-2" *ngFor="let x of productoresLatacunga">
+                        <div class="tarjeta-productores">
+                            <img src="{{x.image}}" class="img-productor">
+                            <p class="nombre-productor">
+                                {{x.nombre}}
+                            </p>
+                            <p class="descripcion-rancho text-justify">
+                                {{x.descripcion}}
+                            </p>
+                            <button class="btn btn-outline-info btn-sm"> Ver más</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="btn-izquierda">
-                <button class="btn rounded-circle" (click)="onPreviousSearchPosition4()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-            </div>
-            <div class="btn-derecha">
-                <button class="btn rounded-circle" (click)="onNextSearchPosition4()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <div class="btn-izquierda">
+                    <button class="btn rounded-circle" (click)="onPreviousSearchPosition2()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="btn-derecha">
+                    <button class="btn rounded-circle" (click)="onNextSearchPosition2()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
         <br>
 
-        <h5>Productotes de Pujilí</h5>
-        <div class="testimonial-group2 border-bottom">
-            <div class="row" #panel2>
-                <div class="col-lg-2" *ngFor="let x of productoresLatacunga">
-                    <div class="tarjeta-productores">
-                        <img src="{{x.image}}" class="img-productor">
-                        <p class="nombre-productor">
-                            {{x.nombre}}
-                        </p>
-                        <p class="descripcion-rancho text-justify">
-                            {{x.descripcion}}
-                        </p>
-                        <button class="btn btn-outline-info btn-sm"> Ver más</button>
+        <div *ngIf="salcedo">
+            <h5>Productotes de La Salcedo</h5>
+            <div class="testimonial-group2">
+                <div class="row" #panel3>
+                    <div class="col-lg-2" *ngFor="let x of productoresLamana">
+                        <div class="tarjeta-productores">
+                            <img src="{{x.image}}" class="img-productor">
+                            <p class="nombre-productor">
+                                {{x.nombre}}
+                            </p>
+                            <p class="descripcion-rancho text-justify">
+                                {{x.descripcion}}
+                            </p>
+                            <button class="btn btn-outline-info btn-sm"> Ver más</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="btn-izquierda">
-                <button class="btn rounded-circle" (click)="onPreviousSearchPosition2()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-            </div>
-            <div class="btn-derecha">
-                <button class="btn rounded-circle" (click)="onNextSearchPosition2()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <div class="btn-izquierda">
+                    <button class="btn rounded-circle" (click)="onPreviousSearchPosition3()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="btn-derecha">
+                    <button class="btn rounded-circle" (click)="onNextSearchPosition3()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
         <br>
 
-        <h5>Productotes de La Salcedo</h5>
-        <div class="testimonial-group2">
-            <div class="row" #panel3>
-                <div class="col-lg-2" *ngFor="let x of productoresLamana">
-                    <div class="tarjeta-productores">
-                        <img src="{{x.image}}" class="img-productor">
-                        <p class="nombre-productor">
-                            {{x.nombre}}
-                        </p>
-                        <p class="descripcion-rancho text-justify">
-                            {{x.descripcion}}
-                        </p>
-                        <button class="btn btn-outline-info btn-sm"> Ver más</button>
+        <div *ngIf="saquisili">
+            <h5>Productotes de Saquisilí</h5>
+            <div class="testimonial-group2">
+                <div class="row" #panel4>
+                    <div class="col-lg-2" *ngFor="let x of productoresPangua">
+                        <div class="tarjeta-productores">
+                            <img src="{{x.image}}" class="img-productor">
+                            <p class="nombre-productor">
+                                {{x.nombre}}
+                            </p>
+                            <p class="descripcion-rancho text-justify">
+                                {{x.descripcion}}
+                            </p>
+                            <button class="btn btn-outline-info btn-sm"> Ver más</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="btn-izquierda">
-                <button class="btn rounded-circle" (click)="onPreviousSearchPosition3()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-            </div>
-            <div class="btn-derecha">
-                <button class="btn rounded-circle" (click)="onNextSearchPosition3()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-
-        <br>
-
-        <h5>Productotes de Saquisilí</h5>
-        <div class="testimonial-group2">
-            <div class="row" #panel4>
-                <div class="col-lg-2" *ngFor="let x of productoresPangua">
-                    <div class="tarjeta-productores">
-                        <img src="{{x.image}}" class="img-productor">
-                        <p class="nombre-productor">
-                            {{x.nombre}}
-                        </p>
-                        <p class="descripcion-rancho text-justify">
-                            {{x.descripcion}}
-                        </p>
-                        <button class="btn btn-outline-info btn-sm"> Ver más</button>
-                    </div>
+                <div class="btn-izquierda">
+                    <button class="btn rounded-circle" (click)="onPreviousSearchPosition4()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
                 </div>
-            </div>
-            <div class="btn-izquierda">
-                <button class="btn rounded-circle" (click)="onPreviousSearchPosition4()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-            </div>
-            <div class="btn-derecha">
-                <button class="btn rounded-circle" (click)="onNextSearchPosition4()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <div class="btn-derecha">
+                    <button class="btn rounded-circle" (click)="onNextSearchPosition4()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
 

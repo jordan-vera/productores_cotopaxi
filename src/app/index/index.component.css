@@ -103,11 +103,12 @@
 .btn-izquierda button {
     padding: 10px;
     font-size: 25px;
+    background-color: rgb(218, 216, 216);
 }
 .btn-izquierda button:hover {
     padding: 10px;
     font-size: 27px;
-    background-color: rgb(218, 216, 216);
+    background-color: rgb(187, 184, 184);
 }
 .btn-derecha {
     position: absolute;
@@ -117,11 +118,12 @@
 .btn-derecha button {
     padding: 10px;
     font-size: 25px;
+    background-color: rgb(218, 216, 216);
 }
 .btn-derecha button:hover {
     padding: 10px;
     font-size: 27px;
-    background-color: rgb(218, 216, 216);
+    background-color: rgb(187, 184, 184);
 }
 
 .fila-actividades img {
