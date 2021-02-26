@@ -23,6 +23,8 @@ import { ActividadesComponent } from './panel-admin/actividades/actividades.comp
 import { AgregarProductoresComponent } from './panel-admin/agregar-productores/agregar-productores.component';
 import { ConsultarProductoresComponent } from './panel-admin/consultar-productores/consultar-productores.component';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { ConsultarProductoresComponent } from './panel-admin/consultar-productor
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    GoogleMapsModule
+    GoogleMapsModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     AdministradorService,

@@ -22,6 +22,7 @@ export class IndexComponent implements OnInit {
   public saquisili: boolean = true;
 
   public opcionCanton: string = '';
+  public busquedatxt: string = '';
 
   constructor() { }
 
