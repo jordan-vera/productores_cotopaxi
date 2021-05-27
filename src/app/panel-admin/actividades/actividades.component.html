@@ -1,23 +1,23 @@
 <div class="container">
-    <br>
-    <h5>Actividades de productores</h5>
-    <br>
-    <p class="titulo-actividad"><b>Crear nueva actividad</b></p>
+  <br>
+  <h5> <i class="fas fa-list"></i> Actividades de productores</h5>
+  <hr>
 
-    
-    <div class="row">
-        <div class="col-lg-5">
-            <label>Nombre de la actividad:</label>
-            <input type="text" class="form-control" name="actividad" #actividad="ngModel" [(ngModel)]="actividadOne.descripcion" required>
-            <div class="cont-btn">
-                <button class="btn btn-info" [disabled]="actividad.invalid" (click)="agregarActividad()">
-                    Agregar
-                </button>
-            </div>
+
+  <div class="row">
+    <div class="col-lg-5">
+        <br>
+        <p class="titulo-actividad"><b>Crear nueva actividad</b></p>
+        <input type="text" class="form-control" name="actividad" #actividad="ngModel"
+          [(ngModel)]="actividadOne.descripcion" placeholder="Nombre de la actividad" required>
+        <div class="cont-btn">
+          <button class="btn btn-info" [disabled]="actividad.invalid" (click)="agregarActividad()">
+            Agregar
+          </button>
         </div>
     </div>
-
-    <table class="table">
+    <div class="col-lg-7">
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -30,11 +30,14 @@
             <th scope="row">{{i+1}}</th>
             <td>{{x.descripcion}}</td>
             <td>
-                <button class="btn btn-sm btn-outline-danger" (click)="eliminarActividad(x.idactividad)">Eliminar</button>
+              <button class="btn btn-sm btn-outline-danger" (click)="eliminarActividad(x.idactividad)">
+                <i class="far fa-trash-alt"></i> Eliminar
+              </button>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
 
-      <br> <br>
 </div>

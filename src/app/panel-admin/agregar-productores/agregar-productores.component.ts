@@ -24,7 +24,7 @@ export class AgregarProductoresComponent implements OnInit {
   public center = { lat: -0.903170592, lng: -78.868795865 };
   markerOptions = { draggable: true };
   markerPositions: google.maps.LatLngLiteral[] = [];
-  public zoom = 6;
+  public zoom = 10;
   display?: google.maps.LatLngLiteral;
   public posicion: any = '';
 

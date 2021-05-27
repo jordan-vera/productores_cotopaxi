@@ -1,45 +1,53 @@
-<br>
+<header class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-0 shadow mt-0 pt-0">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3">Productores de Cotopaxi</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+        data-bs-target="#sidebarMenuw" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" [routerLink]="['/login']">
+                <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+            </a>
+        </li>
+    </ul>
+</header>
 
-<div class="container">
-    <div class="cuerpo">
-        <nav class="navbar navbar-dark bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    Productores de Cotopaxi - Panel administrador
-                </a>
-                <div style="text-align: right;">
-                    <label class="cerrar-sesion" [routerLink]="['/']">
-                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-                    </label>
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenuw" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" [routerLink]="['/panel-admin/actividades']"
+                            [queryParams]="{idusuario: idusuario}">
+                            <i class="fas fa-list"></i> Actividades
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/panel-admin/agregar-productores']"
+                            [queryParams]="{idusuario: idusuario}">
+                            <i class="fas fa-user-plus"></i> Agregar productores
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/panel-admin/consultar-productores']"
+                            [queryParams]="{idusuario: idusuario}">
+                            <i class="fas fa-search"></i> Consultar productores
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">
+                            <i class="far fa-id-card"></i> Mis Datos
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
-        <div class="container border">
-            <div class="row">
-                <div class="col-lg-2 border-end">
-                    <br>
-                    <ul>
-                        <li>
-                            <a class="menu" [routerLink]="['/panel-admin/actividades']"
-                                [queryParams]="{idusuario: idusuario}">Actividades</a>
-                        </li>
-                        <li>
-                            <a class="menu" [routerLink]="['/panel-admin/agregar-productores']"
-                                [queryParams]="{idusuario: idusuario}">Agregar productores</a>
-                        </li>
-                        <li>
-                            <a class="menu" [routerLink]="['/panel-admin/consultar-productores']"
-                            [queryParams]="{idusuario: idusuario}">Consultar productores</a>
-                        </li>
-                        <li>
-                            <a class="menu">Mis datos</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-10">
-                    <router-outlet></router-outlet>
-                </div>
-            </div>
-        </div>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <router-outlet></router-outlet>
+        </main>
+
     </div>
 </div>

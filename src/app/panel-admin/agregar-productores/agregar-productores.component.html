@@ -1,100 +1,106 @@
 <div class="container">
     <br>
-    <h5>Agregar productores</h5>
-
-    <div class="row">
-        <div class="col-lg-4 col-formulario">
-            <label>Nombre de productora:</label>
-            <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="productorCreate.nombre"
-                required>
-
-            <label>Descripción:</label>
-            <textarea class="form-control" name="descri" #descri="ngModel" [(ngModel)]="productorCreate.descripcion"
-                required></textarea>
-
-            <label>Dirección:</label>
-            <textarea class="form-control" name="direc" #direc="ngModel" [(ngModel)]="productorCreate.direccion"
-                required></textarea>
-
-            <label>Actividad:</label>
-            <select class="form-select" name="actividad" #actividad="ngModel" [(ngModel)]="productorCreate.idactividad"
-                required>
-                <option *ngFor="let x of actividades" [value]="x.idactividad">{{x.descripcion}}</option>
-            </select>
-
-            <label>Cantón:</label>
-            <select class="form-select" name="canton" #canton="ngModel" [(ngModel)]="productorCreate.idcanton">
-                <option *ngFor="let x of cantones" [value]="x.idcanton">{{x.nombre}}</option>
-            </select>
-
-        </div>
-        <div class="col-lg-3">
-            <br>
-            Portada
-            <div class="con-btn-upload">
-                <label for="file-upload-imagen1" class="subir-image">
-                    <div *ngIf="!img1" class="text-center">
-                        <img src="../../../assets/images/image-icono.png">
-                    </div>
-                    <div *ngIf="img1" class="text-center">
-                        <img [src]="imageSrc1">
-                    </div>
-                </label>
-                <input id="file-upload-imagen1" class="upload" type="file" #imagen1 accept="image/*"
-                    (change)="seleccionarImagen1($event)">
-                <div *ngIf="img1" class="delete-image" (click)="limpiarImagen1()">
-                    <i class="far fa-window-close"></i>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="col-formulario">
-                <label>Teléfono:</label>
-                <input type="text" class="form-control" name="telefono" #telefono="ngModel"
-                    [(ngModel)]="contactoCreate.telefono" required>
-
-                <label>Celular:</label>
-                <input type="text" class="form-control" name="celular" #celular="ngModel"
-                    [(ngModel)]="contactoCreate.celular" required>
-
-                <label>Email:</label>
-                <input type="text" class="form-control" name="email" #email="ngModel" [(ngModel)]="contactoCreate.email"
-                    required>
-            </div>
-
-        </div>
-        <div class="col-lg-5">
-            <div class="table-responsive">
-                <google-map height="350px" width="335px" [center]="center" [zoom]="zoom" (mapClick)="addMarker($event)"
-                    (mapRightclick)="removeLastMarker()">
-                    <map-marker #marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition">
-                    </map-marker>
-                    <map-info-window>Mi ubicación</map-info-window>
-                </google-map>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-5">
-                    <label>Longitud:</label>
-                    <input type="text" class="form-control" name="longitud" #longitud="ngModel" [(ngModel)]="productorCreate.longitud" required>
-                </div>
-                <div class="col-lg-5">
-                    <label>Latitud:</label>
-                    <input type="text" class="form-control" name="latitu" #latitud="ngModel" [(ngModel)]="productorCreate.latitud" required>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <h5><i class="fas fa-user-plus"></i> Agregar productores</h5>
+    <hr>
     <br>
+    <form #formProductor="ngForm" id="formProductor">
+        <div class="row">
+            <div class="col-lg-6">
+                <input type="text" class="form-control" name="nombre" #nombre="ngModel"
+                    [(ngModel)]="productorCreate.nombre" placeholder="Nombre de productora" required>
+            </div>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" name="telefono" #telefono="ngModel"
+                    [(ngModel)]="contactoCreate.telefono" placeholder="Teléfono" required>
+            </div>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" name="celular" #celular="ngModel"
+                    [(ngModel)]="contactoCreate.celular" placeholder="Celular" required>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <textarea class="form-control" name="descri" #descri="ngModel" [(ngModel)]="productorCreate.descripcion"
+                    placeholder="Descripción" required></textarea>
+            </div>
+            <div class="col-lg-6">
+                <textarea class="form-control" name="direc" #direc="ngModel" [(ngModel)]="productorCreate.direccion"
+                    placeholder="Dirección" required></textarea>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label>Actividad:</label>
+                        <select class="form-select" name="actividad" #actividad="ngModel"
+                            [(ngModel)]="productorCreate.idactividad" required>
+                            <option *ngFor="let x of actividades" [value]="x.idactividad">{{x.descripcion}}</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6">
+                        <label>Cantón:</label>
+                        <select class="form-select" name="canton" #canton="ngModel"
+                            [(ngModel)]="productorCreate.idcanton">
+                            <option *ngFor="let x of cantones" [value]="x.idcanton">{{x.nombre}}</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <input type="text" class="form-control" name="email" #email="ngModel"
+                            [(ngModel)]="contactoCreate.email" placeholder="Email" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="con-btn-upload">
+                            <label for="file-upload-imagen1" class="subir-image">
+                                <div *ngIf="!img1" class="text-center">
+                                    <img src="../../../assets/images/image-icono.png">
+                                </div>
+                                <div *ngIf="img1" class="text-center">
+                                    <img [src]="imageSrc1">
+                                </div>
+                            </label>
+                            <input id="file-upload-imagen1" class="upload" type="file" #imagen1 accept="image/*"
+                                (change)="seleccionarImagen1($event)">
+                            <div *ngIf="img1" class="delete-image" (click)="limpiarImagen1()">
+                                <i class="far fa-window-close"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="table-responsive">
+                    <google-map height="350px" width="475px" [center]="center" [zoom]="zoom"
+                        (mapClick)="addMarker($event)" (mapRightclick)="removeLastMarker()">
+                        <map-marker #marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition">
+                        </map-marker>
+                        <map-info-window>Mi ubicación</map-info-window>
+                    </google-map>
+                </div>
 
-    <div class="border p-2 text-end">
-        <button class="btn btn-primary" (click)="guardarContacto()">
-            <i class="far fa-save"></i> Guardar Productor
-        </button>
-    </div>
+                <div class="row">
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="border p-2 text-end">
+            <button class="btn btn-primary" (click)="guardarContacto()" [disabled]="formProductor.invalid">
+                <i class="far fa-save"></i> Guardar Productor
+            </button>
+        </div>
+    </form>
+
+
 
 </div>
 
