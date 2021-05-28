@@ -7,15 +7,25 @@
         <div class="row">
             <div class="col-lg-6">
                 <input type="text" class="form-control" name="nombre" #nombre="ngModel"
-                    [(ngModel)]="productorCreate.nombre" placeholder="Nombre de productora" required>
+                    [(ngModel)]="productorCreate.nombre" placeholder="Nombre de productora" maxlength="100" required>
+                <div class="error-msj rounded" *ngIf="nombre.invalid && nombre.touched">
+                    Ingresar un nombre válido!!
+                </div>
             </div>
             <div class="col-lg-3">
-                <input type="text" class="form-control" name="telefono" #telefono="ngModel"
-                    [(ngModel)]="contactoCreate.telefono" placeholder="Teléfono" required>
+                <input type="text" class="form-control" name="telefono" #telefono="ngModel" maxlength="10"
+                    pattern="[0-9]+" minlength="5" [(ngModel)]="contactoCreate.telefono" placeholder="Teléfono"
+                    required>
+                <div class="error-msj rounded" *ngIf="telefono.invalid && telefono.touched">
+                    Ingresar un teléfono válido!!
+                </div>
             </div>
             <div class="col-lg-3">
-                <input type="text" class="form-control" name="celular" #celular="ngModel"
-                    [(ngModel)]="contactoCreate.celular" placeholder="Celular" required>
+                <input type="text" class="form-control" name="celular" #celular="ngModel" maxlength="10"
+                    pattern="[0-9]+" minlength="9" [(ngModel)]="contactoCreate.celular" placeholder="Celular" required>
+                <div class="error-msj rounded" *ngIf="celular.invalid && celular.touched">
+                    Ingresar un celular válido!!
+                </div>
             </div>
         </div>
         <br>
@@ -23,10 +33,16 @@
             <div class="col-lg-6">
                 <textarea class="form-control" name="descri" #descri="ngModel" [(ngModel)]="productorCreate.descripcion"
                     placeholder="Descripción" required></textarea>
+                <div class="error-msj rounded" *ngIf="descri.invalid && descri.touched">
+                    Ingresar una descripción válida!!
+                </div>
             </div>
             <div class="col-lg-6">
                 <textarea class="form-control" name="direc" #direc="ngModel" [(ngModel)]="productorCreate.direccion"
                     placeholder="Dirección" required></textarea>
+                <div class="error-msj rounded" *ngIf="direc.invalid && direc.touched">
+                    Ingresar una dirección válida!!
+                </div>
             </div>
         </div>
         <br>
@@ -37,22 +53,32 @@
                         <label>Actividad:</label>
                         <select class="form-select" name="actividad" #actividad="ngModel"
                             [(ngModel)]="productorCreate.idactividad" required>
-                            <option *ngFor="let x of actividades" [value]="x.idactividad">{{x.descripcion}}</option>
+                            <option *ngFor="let x of actividades" [value]="x.idactividad">{{x.descripcion_actividad}}</option>
                         </select>
+                        <div class="error-msj rounded" *ngIf="actividad.invalid && actividad.touched">
+                            Ingresar una actividad válida!!
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <label>Cantón:</label>
                         <select class="form-select" name="canton" #canton="ngModel"
                             [(ngModel)]="productorCreate.idcanton">
-                            <option *ngFor="let x of cantones" [value]="x.idcanton">{{x.nombre}}</option>
+                            <option *ngFor="let x of cantones" [value]="x.idcanton">{{x.nombrecanton}}</option>
                         </select>
+                        <div class="error-msj rounded" *ngIf="canton.invalid && canton.touched">
+                            Ingresar una cantón válido!!
+                        </div>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-lg-6">
-                        <input type="text" class="form-control" name="email" #email="ngModel"
-                            [(ngModel)]="contactoCreate.email" placeholder="Email" required>
+                        <input type="email" class="form-control" name="email" #email="ngModel"
+                            [(ngModel)]="contactoCreate.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            placeholder="Email" required>
+                        <div class="error-msj rounded" *ngIf="email.invalid && email.touched">
+                            Ingresar un email válido!!
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="con-btn-upload">
@@ -70,6 +96,9 @@
                                 <i class="far fa-window-close"></i>
                             </div>
                         </div>
+                        <div class="error-msj rounded" *ngIf="sinImagen">
+                            Agregar una portada!!
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,10 +111,22 @@
                         <map-info-window>Mi ubicación</map-info-window>
                     </google-map>
                 </div>
-
+                <br>
                 <div class="row">
-                    <div class="col-lg-6"></div>
-                    <div class="col-lg-6"></div>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="longitud" #longitud="ngModel"
+                            [(ngModel)]="productorCreate.longitud" placeholder="Longitud" required>
+                        <div class="error-msj rounded" *ngIf="longitud.invalid && longitud.touched">
+                            Ingresar una longitud válida!!
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="latitud" #latitud="ngModel"
+                            [(ngModel)]="productorCreate.latitud" placeholder="Latitud" required>
+                        <div class="error-msj rounded" *ngIf="latitud.invalid && latitud.touched">
+                            Ingresar una latitud válida!!
+                        </div>
+                    </div>
                 </div>
             </div>
 

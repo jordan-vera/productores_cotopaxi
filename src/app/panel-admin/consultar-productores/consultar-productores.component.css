@@ -1,0 +1,42 @@
+#file-upload-imagen1 {
+    display: none;
+}
+
+.subir-image {
+    margin-top: 3px;
+    padding: 5px 10px;
+    color: #fff;
+    border: 0px solid #fff;
+    border: solid gray 2px;
+    border-style: dashed;
+    width: 160px;
+    height: 130px;
+}
+
+.subir-image img {
+    width: 137px;
+    height: auto;
+}
+
+.card-zona {
+    height: 100%;
+}
+
+.box {
+    width: 100%;
+    height: 105px;
+    background: #ccc;
+    overflow: hidden;
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+}
+@supports (object-fit: cover) {
+    .box img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}

@@ -24,6 +24,9 @@ import { AgregarProductoresComponent } from './panel-admin/agregar-productores/a
 import { ConsultarProductoresComponent } from './panel-admin/consultar-productores/consultar-productores.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxSpinnerModule } from "ngx-spinner";
+import {NgxPrintModule} from 'ngx-print';
+import { PerfilComponent } from './panel-admin/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PanelAdminComponent,
     ActividadesComponent,
     AgregarProductoresComponent,
-    ConsultarProductoresComponent
+    ConsultarProductoresComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     GoogleMapsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxPrintModule
   ],
   providers: [
     AdministradorService,

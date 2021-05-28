@@ -29,7 +29,7 @@ export class ActividadesComponent implements OnInit {
       response => {
         this.toastr.success('Actividad agregada correctamente!', 'Hecho!');
         this.mostrarActividades();
-        this.actividadOne.descripcion = '';
+        this.actividadOne.descripcion_actividad = '';
       },
       error => {
         console.log(error);

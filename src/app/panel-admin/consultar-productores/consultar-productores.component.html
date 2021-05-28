@@ -1,25 +1,333 @@
 <br>
-<table class="table">
+<h5> <i class="fas fa-search"></i> Consultar productores</h5>
+<hr>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 text-end">
+      <button class="btn btn-outline-primary" printSectionId="print-productor"
+        styleSheetFile="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" ngxPrint>
+        <i class="fas fa-print"></i> Imprimir
+      </button>
+    </div>
+    <div class="col-lg-6 pe-0">
+      <input type="text" class="form-control" placeholder="buscar" [(ngModel)]="buscartxt">
+    </div>
+  </div>
+</div>
+
+<div id="print-productor">
+  <table class="table table-bordered mt-2">
     <thead>
       <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Cantón</th>
-        <th scope="col">Actividad</th>
         <th scope="col">Nombre</th>
         <th scope="col">Descripción</th>
-        <th scope="col">Portada</th>
         <th scope="col">Fecha registro</th>
+        <th scope="col">Actividad</th>
+        <th scope="col">Cantón</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr *ngFor="let x of productores|filter:buscartxt">
+        <td>{{x.nombre}}</td>
+        <td>{{x.descripcion}}</td>
+        <td>{{x.fecha_registro}}</td>
+        <td>{{x.descripcion_actividad}}</td>
+        <td>{{x.nombrecanton}}</td>
+        <td>
+          <button class="btn btn-outline-primary btn-sm me-3" (click)="abrirInfo(x)" data-bs-toggle="modal"
+            data-bs-target="#modalInfo">
+            <i class="far fa-file-alt"></i>
+          </button>
+          <button class="btn btn-outline-info btn-sm me-3" data-bs-toggle="modal" data-bs-target="#modalEdit"
+            (click)="abrirUpdate(x)">
+            <i class="far fa-edit"></i>
+          </button>
+          <button class="btn btn-outline-warning btn-sm" (click)="abrirGaleria(x.idproductor, x.nombre)"
+            data-bs-toggle="modal" data-bs-target="#modalGaleria">
+            <i class="far fa-images"></i>
+          </button>
+        </td>
       </tr>
 
     </tbody>
   </table>
+</div>
 
-  <br> <br> <br> <br><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class="far fa-edit"></i> Modificar productor
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #formProductorup="ngForm" id="formProductorup">
+          <div class="row">
+            <div class="col-lg-6">
+              <input type="text" class="form-control" name="nombreup" #nombreup="ngModel"
+                [(ngModel)]="productorUpdate.nombre" placeholder="Nombre de productora" maxlength="100" required>
+              <div class="error-msj rounded" *ngIf="nombreup.invalid && nombreup.touched">
+                Ingresar un nombre válido!!
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <input type="text" class="form-control" name="telefonoup" #telefonoup="ngModel" maxlength="10"
+                pattern="[0-9]+" minlength="5" [(ngModel)]="contactoUpdate.telefono" placeholder="Teléfono" required>
+              <div class="error-msj rounded" *ngIf="telefonoup.invalid && telefonoup.touched">
+                Ingresar un teléfono válido!!
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <input type="text" class="form-control" name="celularup" #celularup="ngModel" maxlength="10"
+                pattern="[0-9]+" minlength="9" [(ngModel)]="contactoUpdate.celular" placeholder="Celular" required>
+              <div class="error-msj rounded" *ngIf="celularup.invalid && celularup.touched">
+                Ingresar un celular válido!!
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-6">
+              <textarea class="form-control" name="descriup" #descriup="ngModel"
+                [(ngModel)]="productorUpdate.descripcion" placeholder="Descripción" required></textarea>
+              <div class="error-msj rounded" *ngIf="descriup.invalid && descriup.touched">
+                Ingresar una descripción válida!!
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <textarea class="form-control" name="direcup" #direcup="ngModel" [(ngModel)]="productorUpdate.direccion"
+                placeholder="Dirección" required></textarea>
+              <div class="error-msj rounded" *ngIf="direcup.invalid && direcup.touched">
+                Ingresar una dirección válida!!
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label>Actividad:</label>
+                  <select class="form-select" name="actividadup" #actividadup="ngModel"
+                    [(ngModel)]="productorUpdate.idactividad" required>
+                    <option *ngFor="let x of actividades" [value]="x.idactividad">{{x.descripcion_actividad}}</option>
+                  </select>
+                  <div class="error-msj rounded" *ngIf="actividadup.invalid && actividadup.touched">
+                    Ingresar una actividad válida!!
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <label>Cantón:</label>
+                  <select class="form-select" name="cantonup" #cantonup="ngModel"
+                    [(ngModel)]="productorUpdate.idcanton">
+                    <option *ngFor="let x of cantones" [value]="x.idcanton">{{x.nombrecanton}}</option>
+                  </select>
+                  <div class="error-msj rounded" *ngIf="cantonup.invalid && cantonup.touched">
+                    Ingresar una cantón válido!!
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-lg-12">
+                  <input type="email" class="form-control" name="emailup" #emailup="ngModel"
+                    [(ngModel)]="contactoUpdate.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    placeholder="Email" required>
+                  <div class="error-msj rounded" *ngIf="emailup.invalid && emailup.touched">
+                    Ingresar un email válido!!
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="con-btn-upload">
+                <label for="file-upload-imagen1" class="subir-image">
+                  <div *ngIf="!img2" class="text-center">
+                    <img src="{{urlImage+productorUpdate.portada}}">
+                  </div>
+                  <div *ngIf="img2" class="text-center">
+                    <img [src]="imageSrc2">
+                  </div>
+                </label>
+                <input id="file-upload-imagen1" class="upload" type="file" accept="image/*"
+                  (change)="seleccionarImagen2($event)">
+              </div>
+            </div>
+          </div>
+
+
+
+          <!--
+<div class="table-responsive">
+                <google-map height="350px" width="475px" [center]="center" [zoom]="zoom" (mapClick)="addMarker($event)"
+                  (mapRightclick)="removeLastMarker()">
+                  <map-marker #marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition">
+                  </map-marker>
+                  <map-info-window>Mi ubicación</map-info-window>
+                </google-map>
+              </div>
+              <br>
+              -->
+
+          <br>
+
+          <div class="row">
+            <div class="col-lg-3">
+              <input type="text" class="form-control" name="longitudup" #longitudup="ngModel"
+                [(ngModel)]="productorUpdate.longitud" placeholder="Longitud" required>
+              <div class="error-msj rounded" *ngIf="longitudup.invalid && longitudup.touched">
+                Ingresar una longitud válida!!
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <input type="text" class="form-control" name="latitudup" #latitudup="ngModel"
+                [(ngModel)]="productorUpdate.latitud" placeholder="Latitud" required>
+              <div class="error-msj rounded" *ngIf="latitudup.invalid && latitudup.touched">
+                Ingresar una latitud válida!!
+              </div>
+            </div>
+          </div>
+
+
+
+          <br>
+
+          <div class="border p-2 text-end">
+            <button class="btn btn-primary" (click)="actualizar()">
+              <i class="far fa-edit"></i> Actualizar Productor
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal info -->
+<div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class="far fa-file-alt"></i> Información del productor
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 border-end">
+              <p><b>Nombre: </b>{{productorInfo.nombre}}</p>
+              <p><b>Descripción: </b>{{productorInfo.descripcion}}</p>
+              <p><b>Actividad: </b>{{actividadInfo.descripcion_actividad}}</p>
+              <div class="row">
+                <div class="col-lg-6">
+                  <p><b>Teléfono: </b>{{contactoInfo.telefono}}</p>
+                </div>
+                <div class="col-lg-6">
+                  <p><b>Celular: </b>{{contactoInfo.celular}}</p>
+                </div>
+              </div>
+              <p><b>Dirección: </b>{{productorInfo.direccion}}</p>
+              <p><b>Email: </b>{{contactoInfo.email}}</p>
+              <p><b>Cantón: </b>{{cantonInfo.nombrecanton}}</p>
+              <p><b>Fecha de registro: </b>{{productorInfo.fecha_registro}}</p>
+              <img src="{{urlImage+productorInfo.portada}}" class="w-100 rounded">
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col-4" *ngFor="let x of galerias">
+                  <div class="rounded p-1 card-zona">
+                    <div class="text-center box">
+                      <img src="{{urlImage+x.imagen}}" class="image-zona rounded">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="table-responsive">
+                <google-map height="310px" width="320px" [center]="center1" [zoom]="zoom1">
+                  <map-marker #marker *ngFor="let markerPosition of markerPositions1" [position]="markerPosition">
+                  </map-marker>
+                  <map-info-window>Mi ubicación</map-info-window>
+                </google-map>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="printInfo()" *ngIf="!printBtnInfo">
+          <i class="fas fa-print"></i> Imprimir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal galeria -->
+<div class="modal fade" id="modalGaleria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class="far fa-images"></i> Galería de imágenes - ({{nombreProductor}})
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="con-btn-upload">
+                <label for="file-upload-imagen1" class="subir-image">
+                  <div *ngIf="!img1" class="text-center">
+                    <img src="../../../assets/images/image-icono.png">
+                  </div>
+                  <div *ngIf="img1" class="text-center">
+                    <img [src]="imageSrc1">
+                  </div>
+                </label>
+                <input id="file-upload-imagen1" class="upload" type="file" #imagen1 accept="image/*"
+                  (change)="seleccionarImagen1($event)">
+              </div>
+              <br>
+              <button class="btn btn-outline-primary w-100" (click)="guardarGaleria()">
+                <i class="far fa-save"></i> Guardar
+              </button>
+            </div>
+            <div class="col-lg-9">
+              <div class="row">
+                <div class="col-lg-3" *ngFor="let x of galerias">
+                  <div class="text-end">
+                    <button class="btn btn-outline-danger btn-sm" (click)="deleteImagen(x.idgaleria, x.imagen)">
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                  </div>
+
+                  <div class="rounded p-1 card-zona">
+                    <div class="text-center box">
+                      <img src="{{urlImage+x.imagen}}" class="image-zona">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          <i class="far fa-window-close"></i> Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<br>
+<div class="container">
+    <h5> <i class="far fa-id-card"></i> Mis Datos</h5>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Usuario: </label>
+            <input type="text" class="form-control" name="usuario" #usuario="ngModel"
+            [(ngModel)]="administrador.user">
+            <br>
+            <label>Contraseña: </label>
+            <input type="password" class="form-control" name="clave" #clave="ngModel"
+            [(ngModel)]="administrador.clave">
+            <br>
+            <button class="btn btn-outline-primary w-100" (click)="actualizar()">
+                <i class="far fa-edit"></i> Actualizar
+            </button>
+        </div>
+    </div>
+</div>

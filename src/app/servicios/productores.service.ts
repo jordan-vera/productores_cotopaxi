@@ -21,6 +21,10 @@ export class ProductoresService {
     return this._http.get(this.url + 'productores');
   }
 
+  getAllRelaciones(): Observable<any> {
+    return this._http.get(this.url + 'productores-all');
+  }
+
   getOne(idactividad: number): Observable<any> {
     return this._http.get(this.url + 'productores/' + idactividad);
   }
@@ -35,5 +39,12 @@ export class ProductoresService {
   delete(idactividad: number): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.delete(this.url + 'productores/' + idactividad, { headers: headers });
+  }
+
+  update(data: Productor, imagenAnterior): Observable<any> {
+    let params = JSON.stringify(data);
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this._http.put(this.url + 'productores/'+ imagenAnterior, params, { headers: headers });
   }
 }

@@ -2,4 +2,10 @@ body {
     font-size: .875rem;
   }
   
-  
+  .error-msj {
+    border: solid 1px red;
+    margin-top: 3px;
+    color: red;
+    font-size: 13px;
+    padding: 3px;
+  }

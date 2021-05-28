@@ -6,6 +6,7 @@ import { PanelAdminComponent } from './panel-admin/panel-admin.component';
 import { ActividadesComponent } from './panel-admin/actividades/actividades.component';
 import { AgregarProductoresComponent } from './panel-admin/agregar-productores/agregar-productores.component';
 import { ConsultarProductoresComponent } from './panel-admin/consultar-productores/consultar-productores.component';
+import { PerfilComponent } from './panel-admin/perfil/perfil.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: 'consultar-productores',
         component: ConsultarProductoresComponent
+      },
+      {
+        path: 'perfil',
+        component: PerfilComponent
       },
     ]
   }

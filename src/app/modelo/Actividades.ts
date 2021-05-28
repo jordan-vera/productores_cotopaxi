@@ -1,13 +1,13 @@
 export class Actividades {
 
     public idactividad: number;
-    public descripcion: string;
+    public descripcion_actividad: string;
 
     constructor(
         idactividad: number,
-        descripcion: string
+        descripcion_actividad: string
     ) {
         this.idactividad = idactividad;
-        this.descripcion = descripcion;
+        this.descripcion_actividad = descripcion_actividad;
     }
 }

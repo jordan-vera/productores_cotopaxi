@@ -1,13 +1,13 @@
 export class Canton {
 
     public idcanton: number;
-    public nombre: string;
+    public nombrecanton: string;
 
     constructor(
         idcanton: number,
-        nombre: string
+        nombrecanton: string
     ) {
         this.idcanton = idcanton;
-        this.nombre = nombre;
+        this.nombrecanton = nombrecanton;
     }
 }

@@ -32,6 +32,7 @@ export class AgregarProductoresComponent implements OnInit {
   public actividades: Actividades[] = [];
   public productorCreate: Productor = new Productor(0, 0, 0, 0, '', '', '', '', '', '', '', '');
   public contactoCreate: Contacto = new Contacto(0, '', '', '');
+  public sinImagen: boolean = false;
 
   constructor(
     private _cantonService: CantonService,
@@ -47,19 +48,22 @@ export class AgregarProductoresComponent implements OnInit {
   }
 
   guardarContacto(): void {
-    this._contactoService.create(this.contactoCreate).subscribe(
-      response => {
-        let idcontacto = response.response;
-        this.guardarProductor(idcontacto);
-      },
-      error => {
-        console.log(error);
-      }
-    )
+    if (this.productorCreate.portada == '') {
+      this.sinImagen = true;
+    } else {
+      this.sinImagen = false;
+      this._contactoService.create(this.contactoCreate).subscribe(
+        response => {
+          let idcontacto = response.response;
+          this.guardarProductor(idcontacto);
+        }, error => {
+          console.log(error);
+        }
+      )
+    }
   }
 
   guardarProductor(idcontacto: number): void {
-    console.log(idcontacto);
     this.productorCreate.fecha_registro = Fecha.fechaActual() + ' ' + Fecha.horaActual();
     this.productorCreate.idcontacto = idcontacto;
     this._productoresService.create(this.productorCreate).subscribe(
