@@ -27,6 +27,12 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {NgxPrintModule} from 'ngx-print';
 import { PerfilComponent } from './panel-admin/perfil/perfil.component';
+import { HomeComponent } from './index/home/home.component';
+import { ResultadosPorActividadesComponent } from './index/resultados-por-actividades/resultados-por-actividades.component';
+import { ResultadosPorCantonesComponent } from './index/resultados-por-cantones/resultados-por-cantones.component';
+import { ResultadosPorBusquedaComponent } from './index/resultados-por-busqueda/resultados-por-busqueda.component';
+import { ProductorShowComponent } from './index/productor-show/productor-show.component';
+import { ProductorCardComponent } from './componentes/productor-card/productor-card.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,13 @@ import { PerfilComponent } from './panel-admin/perfil/perfil.component';
     ActividadesComponent,
     AgregarProductoresComponent,
     ConsultarProductoresComponent,
-    PerfilComponent
+    PerfilComponent,
+    HomeComponent,
+    ResultadosPorActividadesComponent,
+    ResultadosPorCantonesComponent,
+    ResultadosPorBusquedaComponent,
+    ProductorShowComponent,
+    ProductorCardComponent
   ],
   imports: [
     BrowserModule,

@@ -133,3 +133,34 @@
 .fila-actividades h5 {
     margin-top: 15px;
 }
+
+
+
+.chip-filtros {
+    margin-top: 8px;
+}
+
+
+/* filtro carrusel  */
+.testimonial-group-filtro{
+    margin-right: 0px;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+.testimonial-group-filtro > .row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow: scroll;
+    
+    
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.testimonial-group-filtro > .row > .col {
+    flex: 0 0 auto;
+}

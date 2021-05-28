@@ -20,7 +20,6 @@
     <thead>
       <tr>
         <th scope="col">Nombre</th>
-        <th scope="col">Descripción</th>
         <th scope="col">Fecha registro</th>
         <th scope="col">Actividad</th>
         <th scope="col">Cantón</th>
@@ -30,7 +29,6 @@
     <tbody>
       <tr *ngFor="let x of productores|filter:buscartxt">
         <td>{{x.nombre}}</td>
-        <td>{{x.descripcion}}</td>
         <td>{{x.fecha_registro}}</td>
         <td>{{x.descripcion_actividad}}</td>
         <td>{{x.nombrecanton}}</td>

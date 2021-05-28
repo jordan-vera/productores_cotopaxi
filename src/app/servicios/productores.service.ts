@@ -29,6 +29,18 @@ export class ProductoresService {
     return this._http.get(this.url + 'productores/' + idactividad);
   }
 
+  getporActividades(idactividad: number): Observable<any> {
+    return this._http.get(this.url + 'productores-actividad/' + idactividad);
+  }
+
+  getporNombre(nombre: string): Observable<any> {
+    return this._http.get(this.url + 'productores-search/' + nombre);
+  }
+
+  getporCanton(idcanton: number): Observable<any> {
+    return this._http.get(this.url + 'productores-canton/' + idcanton);
+  }
+
   create(data: Productor): Observable<any> {
     let params = JSON.stringify(data);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');

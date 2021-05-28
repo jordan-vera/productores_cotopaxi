@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3" *ngFor="let x of productores" >
+            <div class="border rounded p-1 card-zona bg-white" style="cursor: pointer;" [routerLink]="['/index/productor', x.idproductor]">
+                <div class="text-center box">
+                    <img src="{{urlPortada+x.portada}}" class="image-zona">
+                </div>
+                <div class="ps-2 pe-2 pt-2">
+                    <p class="nombre-zona"><b>{{x.nombre}}</b></p>
+                    <p class="descripcion-zona text-justify">{{x.descripcion}}</p>
+                </div>
+
+                <div class="canton">{{x.nombrecanton}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="text-center pt-5" *ngIf="!productores">
+    <h4>No hay resultados!!</h4>
+</div>

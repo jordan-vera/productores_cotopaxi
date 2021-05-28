@@ -18,6 +18,11 @@
     height: auto;
 }
 
+.text2 {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
 .card-zona {
     height: 100%;
 }
