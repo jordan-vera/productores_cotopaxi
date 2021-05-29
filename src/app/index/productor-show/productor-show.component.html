@@ -1,1 +1,50 @@
-<p>productor-show works!</p>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/index']">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{nombre}}</li>
+    </ol>
+</nav>
+<hr class="mt-1">
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="{{urlImage}}" class="w-100">
+        </div>
+        <div class="col-lg-6">
+            <div class="bg-white p-2 rounded">
+                <h4>{{nombre}}</h4>
+                <small><b>Actividad: </b>{{actividad}} <b class="ms-2">Tel: </b>{{telefono}} <b class="ms-2">Celular:
+                    </b>{{celular}}</small>
+                <p class="mt-2">{{descripcion}}</p>
+                <p><b>Dirección: </b>{{canton}} - {{direccion}}</p>
+                <p><b>Email: </b>{{email}}</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-3" *ngFor="let x of galeria">
+                    <div class="rounded p-1 card-zona">
+                        <div class="text-center box">
+                            <img src="{{urlGaleria+x.imagen}}" class="image-zona">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="table-responsive">
+                <google-map height="310px" width="420px" [center]="center1" [zoom]="zoom1">
+                  <map-marker #marker *ngFor="let markerPosition of markerPositions1" [position]="markerPosition">
+                  </map-marker>
+                  <map-info-window>Mi ubicación</map-info-window>
+                </google-map>
+              </div>
+        </div>
+    </div>
+</div>
+
+<br>
