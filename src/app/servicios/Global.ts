@@ -1,6 +1,6 @@
 export var global = {
     url: 'https://productorescotopaxi.com/productores_api/',
-    urlImage: 'http://localhost/archivosProductores/'
+    urlImage: 'https://productorescotopaxi.com/archivosProductores/'
 
     //https://productorescotopaxi.com/productores_api/
 
