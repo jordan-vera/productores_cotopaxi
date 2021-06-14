@@ -11,6 +11,7 @@ export class Productor {
     public longitud: string;
     public latitud: string;
     public direccion: string;
+    public nombrecanton: string;
 
     public file: any;
 
@@ -26,8 +27,8 @@ export class Productor {
         longitud: string,
         latitud: string,
         direccion: string,
-
-        file: any
+        file: any,
+        nombrecanton?: string,
     ) {
         this.idproductor = idproductor;
         this.idcanton = idcanton;
@@ -40,7 +41,7 @@ export class Productor {
         this.longitud = longitud;
         this.latitud = latitud;
         this.direccion = direccion;
-
         this.file = file;
+        this.nombrecanton = nombrecanton;
     }
 }

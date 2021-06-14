@@ -1,34 +1,179 @@
-<!--
-    <div *ngIf="saquisili">
-    <h5>Productotes de Saquisilí</h5>
-    <div class="testimonial-group2">
-        <div class="row" #panel4>
-            <div class="col-lg-2" *ngFor="let x of productoresPangua |filter:busquedatxt">
-                <div class="tarjeta-productores">
-                    <img src="{{x.image}}" class="img-productor">
-                    <p class="nombre-productor">
-                        {{x.nombre}}
-                    </p>
-                    <p class="descripcion-rancho text-justify">
-                        {{x.descripcion}}
-                    </p>
-                    <button class="btn btn-outline-info btn-sm"> Ver más</button>
+<div class=" productos-sm" *ngIf="productoresLamana">
+    <h5 class="font-cairo pl-2">
+        Productores La Maná
+    </h5>
+    <div class="container testimonial-group2">
+        <div class="row" #panel2>
+            <div class="col-lg-3 pl-0 pr-0" *ngFor="let x of productoresLamana">
+                <div class="border rounded p-1 card-zona bg-white" style="cursor: pointer;"
+                    [routerLink]="['/index/productor', x.idproductor]">
+                    <div class="text-center box">
+                        <img src="{{urlPortada+x.portada}}" class="image-zona">
+                    </div>
+                    <div class="ps-2 pe-2 pt-2">
+                        <p class="nombre-zona"><b>{{x.nombre}}</b></p>
+
+                        <p class="descripcion-zona text-justify">{{x.descripcion}}</p>
+                    </div>
+
+                    <div class="canton">{{x.nombrecanton}}</div>
                 </div>
             </div>
         </div>
-        <div class="btn-izquierda">
-            <button class="btn rounded-circle" (click)="onPreviousSearchPosition4()">
+        <div class=" btn-izquierda">
+            <button class="btn btn-secondary rounded" (click)="onPreviousSearchPosition2()">
                 <i class="fas fa-chevron-left"></i>
             </button>
         </div>
         <div class="btn-derecha">
-            <button class="btn rounded-circle" (click)="onNextSearchPosition4()">
+            <button class="btn btn-secondary rounded" (click)="onNextSearchPosition2()">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
     </div>
 </div>
+<br>
 
--->
+<div class=" productos-sm" *ngIf="productoresLatacunga">
+    <h5 class="font-cairo pl-2">
+        Productores Latacunga
+    </h5>
+    <div class="container testimonial-group2">
+        <div class="row" #panel3>
+            <div class="col-lg-3 pl-0 pr-0" *ngFor="let x of productoresLatacunga">
+                <div class="border rounded p-1 card-zona bg-white" style="cursor: pointer;"
+                    [routerLink]="['/index/productor', x.idproductor]">
+                    <div class="text-center box">
+                        <img src="{{urlPortada+x.portada}}" class="image-zona">
+                    </div>
+                    <div class="ps-2 pe-2 pt-2">
+                        <p class="nombre-zona"><b>{{x.nombre}}</b></p>
 
-home
+                        <p class="descripcion-zona text-justify">{{x.descripcion}}</p>
+                    </div>
+
+                    <div class="canton">{{x.nombrecanton}}</div>
+                </div>
+            </div>
+        </div>
+        <div class=" btn-izquierda">
+            <button class="btn btn-secondary rounded" (click)="onPreviousSearchPosition3()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <div class="btn-derecha">
+            <button class="btn btn-secondary rounded" (click)="onNextSearchPosition3()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class=" productos-sm" *ngIf="productorespangua">
+    <h5 class="font-cairo pl-2">
+        Productores Pangua
+    </h5>
+    <div class="container testimonial-group2">
+        <div class="row" #panel4>
+            <div class="col-lg-3 pl-0 pr-0" *ngFor="let x of productorespangua">
+                <div class="border rounded p-1 card-zona bg-white" style="cursor: pointer;"
+                    [routerLink]="['/index/productor', x.idproductor]">
+                    <div class="text-center box">
+                        <img src="{{urlPortada+x.portada}}" class="image-zona">
+                    </div>
+                    <div class="ps-2 pe-2 pt-2">
+                        <p class="nombre-zona"><b>{{x.nombre}}</b></p>
+
+                        <p class="descripcion-zona text-justify">{{x.descripcion}}</p>
+                    </div>
+
+                    <div class="canton">{{x.nombrecanton}}</div>
+                </div>
+            </div>
+        </div>
+        <div class=" btn-izquierda">
+            <button class="btn btn-secondary rounded" (click)="onPreviousSearchPosition4()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <div class="btn-derecha">
+            <button class="btn btn-secondary rounded" (click)="onNextSearchPosition4()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class=" productos-sm" *ngIf="productorespijili">
+    <h5 class="font-cairo pl-2">
+        Productores Pujilí
+    </h5>
+    <div class="container testimonial-group2">
+        <div class="row" #panel5>
+            <div class="col-lg-3 pl-0 pr-0" *ngFor="let x of productorespijili">
+                <div class="border rounded p-1 card-zona bg-white" style="cursor: pointer;"
+                    [routerLink]="['/index/productor', x.idproductor]">
+                    <div class="text-center box">
+                        <img src="{{urlPortada+x.portada}}" class="image-zona">
+                    </div>
+                    <div class="ps-2 pe-2 pt-2">
+                        <p class="nombre-zona"><b>{{x.nombre}}</b></p>
+
+                        <p class="descripcion-zona text-justify">{{x.descripcion}}</p>
+                    </div>
+
+                    <div class="canton">{{x.nombrecanton}}</div>
+                </div>
+            </div>
+        </div>
+        <div class=" btn-izquierda">
+            <button class="btn btn-secondary rounded" (click)="onPreviousSearchPosition5()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <div class="btn-derecha">
+            <button class="btn btn-secondary rounded" (click)="onNextSearchPosition5()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class=" productos-sm" *ngIf="productoressalcedo">
+    <h5 class="font-cairo pl-2">
+        Productores Salcedo
+    </h5>
+    <div class="container testimonial-group2">
+        <div class="row" #panel6>
+            <div class="col-lg-3 pl-0 pr-0" *ngFor="let x of productoressalcedo">
+                <div class="border rounded p-1 card-zona bg-white" style="cursor: pointer;"
+                    [routerLink]="['/index/productor', x.idproductor]">
+                    <div class="text-center box">
+                        <img src="{{urlPortada+x.portada}}" class="image-zona">
+                    </div>
+                    <div class="ps-2 pe-2 pt-2">
+                        <p class="nombre-zona"><b>{{x.nombre}}</b></p>
+
+                        <p class="descripcion-zona text-justify">{{x.descripcion}}</p>
+                    </div>
+
+                    <div class="canton">{{x.nombrecanton}}</div>
+                </div>
+            </div>
+        </div>
+        <div class=" btn-izquierda">
+            <button class="btn btn-secondary rounded" (click)="onPreviousSearchPosition6()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <div class="btn-derecha">
+            <button class="btn btn-secondary rounded" (click)="onNextSearchPosition6()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<br>
