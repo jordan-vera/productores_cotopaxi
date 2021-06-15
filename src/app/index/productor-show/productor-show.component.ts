@@ -42,12 +42,15 @@ export class ProductorShowComponent implements OnInit {
   ) {
     this._route.params.subscribe((params: Params) => {
       this.idproductor = params.idproductor;
-      this.getProductor();
       this.getGaleria();
     });
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    this.getProductor();
   }
 
   getGaleria(): void {
