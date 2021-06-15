@@ -20,10 +20,11 @@ export class IndexComponent implements OnInit {
   public salcedo: boolean = true;
   public saquisili: boolean = true;
 
-  public opcionCanton: string = 'lamana';
+  public opcionCanton: string = '7';
   public busquedatxt: string = '';
 
   public actividades: Actividades[];
+
 
   constructor(
     private _actividadesService: ActividadesService,
@@ -51,11 +52,11 @@ export class IndexComponent implements OnInit {
   }
 
   public onPreviousSearchPosition3(): void {
-    this.panel3.nativeElement.scrollTo({ left: (this.panel3.nativeElement.scrollLeft - 180), behavior: 'smooth' });
+    this.panel3.nativeElement.scrollTo({ left: (this.panel3.nativeElement.scrollLeft - 80), behavior: 'smooth' });
   }
 
   public onNextSearchPosition3(): void {
-    this.panel3.nativeElement.scrollTo({ left: (this.panel3.nativeElement.scrollLeft + 180), behavior: 'smooth' });
+    this.panel3.nativeElement.scrollTo({ left: (this.panel3.nativeElement.scrollLeft + 80), behavior: 'smooth' });
   }
 
   public onPreviousSearchPosition4(): void {

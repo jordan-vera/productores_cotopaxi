@@ -1,6 +1,6 @@
-<div class=" productos-sm" *ngIf="productoresLamana">
+<div class="bg-white p-3 cuerpo" *ngIf="productoresLamana">
     <h5 class="font-cairo pl-2">
-        Productores La Maná
+        Productores de La Maná
     </h5>
     <div class="container testimonial-group2">
         <div class="row" #panel2>
@@ -21,12 +21,12 @@
             </div>
         </div>
         <div class=" btn-izquierda">
-            <button class="btn btn-secondary rounded" (click)="onPreviousSearchPosition2()">
+            <button class="btn btn-outline-secondary rounded" (click)="onPreviousSearchPosition2()">
                 <i class="fas fa-chevron-left"></i>
             </button>
         </div>
         <div class="btn-derecha">
-            <button class="btn btn-secondary rounded" (click)="onNextSearchPosition2()">
+            <button class="btn btn-outline-secondary rounded" (click)="onNextSearchPosition2()">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
@@ -34,9 +34,9 @@
 </div>
 <br>
 
-<div class=" productos-sm" *ngIf="productoresLatacunga">
+<div class="bg-white p-3 cuerpo" *ngIf="productoresLatacunga">
     <h5 class="font-cairo pl-2">
-        Productores Latacunga
+        Productores de Latacunga
     </h5>
     <div class="container testimonial-group2">
         <div class="row" #panel3>
@@ -57,12 +57,12 @@
             </div>
         </div>
         <div class=" btn-izquierda">
-            <button class="btn btn-secondary rounded" (click)="onPreviousSearchPosition3()">
+            <button class="btn btn-outline-secondary rounded" (click)="onPreviousSearchPosition3()">
                 <i class="fas fa-chevron-left"></i>
             </button>
         </div>
         <div class="btn-derecha">
-            <button class="btn btn-secondary rounded" (click)="onNextSearchPosition3()">
+            <button class="btn btn-outline-secondary rounded" (click)="onNextSearchPosition3()">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
@@ -70,9 +70,9 @@
 </div>
 <br>
 
-<div class=" productos-sm" *ngIf="productorespangua">
+<div class="bg-white p-3 cuerpo" *ngIf="productorespangua">
     <h5 class="font-cairo pl-2">
-        Productores Pangua
+        Productores de Pangua
     </h5>
     <div class="container testimonial-group2">
         <div class="row" #panel4>
@@ -93,12 +93,12 @@
             </div>
         </div>
         <div class=" btn-izquierda">
-            <button class="btn btn-secondary rounded" (click)="onPreviousSearchPosition4()">
+            <button class="btn btn-outline-secondary rounded" (click)="onPreviousSearchPosition4()">
                 <i class="fas fa-chevron-left"></i>
             </button>
         </div>
         <div class="btn-derecha">
-            <button class="btn btn-secondary rounded" (click)="onNextSearchPosition4()">
+            <button class="btn btn-outline-secondary rounded" (click)="onNextSearchPosition4()">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
@@ -106,9 +106,9 @@
 </div>
 <br>
 
-<div class=" productos-sm" *ngIf="productorespijili">
+<div class="bg-white p-3 cuerpo" *ngIf="productorespijili">
     <h5 class="font-cairo pl-2">
-        Productores Pujilí
+        Productores de Pujilí
     </h5>
     <div class="container testimonial-group2">
         <div class="row" #panel5>
@@ -129,12 +129,12 @@
             </div>
         </div>
         <div class=" btn-izquierda">
-            <button class="btn btn-secondary rounded" (click)="onPreviousSearchPosition5()">
+            <button class="btn btn-outline-secondary rounded" (click)="onPreviousSearchPosition5()">
                 <i class="fas fa-chevron-left"></i>
             </button>
         </div>
         <div class="btn-derecha">
-            <button class="btn btn-secondary rounded" (click)="onNextSearchPosition5()">
+            <button class="btn btn-outline-secondary rounded" (click)="onNextSearchPosition5()">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
@@ -142,9 +142,9 @@
 </div>
 <br>
 
-<div class=" productos-sm" *ngIf="productoressalcedo">
+<div class="bg-white p-3 cuerpo" *ngIf="productoressalcedo">
     <h5 class="font-cairo pl-2">
-        Productores Salcedo
+        Productores de Salcedo
     </h5>
     <div class="container testimonial-group2">
         <div class="row" #panel6>
@@ -165,12 +165,84 @@
             </div>
         </div>
         <div class=" btn-izquierda">
-            <button class="btn btn-secondary rounded" (click)="onPreviousSearchPosition6()">
+            <button class="btn btn-outline-secondary rounded" (click)="onPreviousSearchPosition6()">
                 <i class="fas fa-chevron-left"></i>
             </button>
         </div>
         <div class="btn-derecha">
-            <button class="btn btn-secondary rounded" (click)="onNextSearchPosition6()">
+            <button class="btn btn-outline-secondary rounded" (click)="onNextSearchPosition6()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="bg-white p-3 cuerpo" *ngIf="productoressaquisili">
+    <h5 class="font-cairo pl-2">
+        Productores de Saquisilí
+    </h5>
+    <div class="container testimonial-group2">
+        <div class="row" #panel7>
+            <div class="col-lg-3 pl-0 pr-0" *ngFor="let x of productoressaquisili">
+                <div class="border rounded p-1 card-zona bg-white" style="cursor: pointer;"
+                    [routerLink]="['/index/productor', x.idproductor]">
+                    <div class="text-center box">
+                        <img src="{{urlPortada+x.portada}}" class="image-zona">
+                    </div>
+                    <div class="ps-2 pe-2 pt-2">
+                        <p class="nombre-zona"><b>{{x.nombre}}</b></p>
+
+                        <p class="descripcion-zona text-justify">{{x.descripcion}}</p>
+                    </div>
+
+                    <div class="canton">{{x.nombrecanton}}</div>
+                </div>
+            </div>
+        </div>
+        <div class=" btn-izquierda">
+            <button class="btn btn-outline-secondary rounded" (click)="onPreviousSearchPosition7()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <div class="btn-derecha">
+            <button class="btn btn-outline-secondary rounded" (click)="onNextSearchPosition7()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="bg-white p-3 cuerpo" *ngIf="productoressigchos">
+    <h5 class="font-cairo pl-2">
+        Productores de Sigchos
+    </h5>
+    <div class="container testimonial-group2">
+        <div class="row" #panel8>
+            <div class="col-lg-3 pl-0 pr-0" *ngFor="let x of productoressigchos">
+                <div class="border rounded p-1 card-zona bg-white" style="cursor: pointer;"
+                    [routerLink]="['/index/productor', x.idproductor]">
+                    <div class="text-center box">
+                        <img src="{{urlPortada+x.portada}}" class="image-zona">
+                    </div>
+                    <div class="ps-2 pe-2 pt-2">
+                        <p class="nombre-zona"><b>{{x.nombre}}</b></p>
+
+                        <p class="descripcion-zona text-justify">{{x.descripcion}}</p>
+                    </div>
+
+                    <div class="canton">{{x.nombrecanton}}</div>
+                </div>
+            </div>
+        </div>
+        <div class=" btn-izquierda">
+            <button class="btn btn-outline-secondary rounded" (click)="onPreviousSearchPosition8()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        <div class="btn-derecha">
+            <button class="btn btn-outline-secondary rounded" (click)="onNextSearchPosition8()">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
