@@ -45,7 +45,7 @@
                         <i class="fas fa-key"></i>
                     </span>
                     <input type="password" class="form-control" placeholder="Contraseña" name="clave" #clave="ngModel"
-                        [(ngModel)]="administrador.clave">
+                        [(ngModel)]="administrador.clave" (keyup.enter)="validar()">
                 </div>
                 <button class="btn btn-outline-secondary btn-ingresar" (click)="validar()">Ingresar</button>
             </div>
