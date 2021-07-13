@@ -12,6 +12,7 @@ import { Canton } from 'src/app/modelo/Canton';
 import { ActividadesService } from 'src/app/servicios/actividades.service';
 import { CantonService } from 'src/app/servicios/canton.service';
 import { ContactoService } from 'src/app/servicios/contacto.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-consultar-productores',
@@ -59,6 +60,7 @@ export class ConsultarProductoresComponent implements OnInit {
     private _actividadService: ActividadesService,
     private _cantonService: CantonService,
     private _contactoService: ContactoService,
+    public spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
@@ -85,12 +87,14 @@ export class ConsultarProductoresComponent implements OnInit {
         console.log(error);
       }
     )
+    this.spinner.show();
     this._productoresService.update(this.productorUpdate, this.anterior).subscribe(
       response => {
+        this.spinner.hide();
         this.getAll();
-        console.log(response);
         this.productorUpdate.file = '';
       }, error => {
+        this.spinner.hide();
         console.log(error)
       }
     )
@@ -108,22 +112,26 @@ export class ConsultarProductoresComponent implements OnInit {
   }
 
   mostrarCantones(): void {
+    this.spinner.show();
     this._cantonService.getAll().subscribe(
       response => {
+        this.spinner.hide();
         this.cantones = response.response;
-      },
-      error => {
+      }, error => {
+        this.spinner.hide();
         console.log(error);
       }
     )
   }
 
   mostrarActividades(): void {
+    this.spinner.show();
     this._actividadService.getAll().subscribe(
       response => {
+        this.spinner.hide();
         this.actividades = response.response;
-      },
-      error => {
+      }, error => {
+        this.spinner.hide();
         console.log(error);
       }
     )
@@ -142,21 +150,27 @@ export class ConsultarProductoresComponent implements OnInit {
   }
 
   deleteImagen(id, nombre): void {
+    this.spinner.show();
     this._galeriaService.delete(id, nombre).subscribe(
       response => {
+        this.spinner.hide();
         this.toastr.success('Imagen eliminada correctamente!', 'Hecho!');
         this.getGaleria();
       }, error => {
+        this.spinner.hide();
         console.log(error);
       }
     )
   }
 
   getGaleria(): void {
+    this.spinner.show();
     this._galeriaService.getOne(this.idrepartidor).subscribe(
       response => {
+        this.spinner.hide();
         this.galerias = response.response;
       }, error => {
+        this.spinner.hide();
         console.log(error);
       }
     )
@@ -169,23 +183,29 @@ export class ConsultarProductoresComponent implements OnInit {
   }
 
   guardarGaleria(): void {
+    this.spinner.show();
     this.galeria.idproductor = this.idrepartidor;
     this._galeriaService.create(this.galeria).subscribe(
       response => {
+        this.spinner.hide();
         this.toastr.success('Imagen agregada correctamente!', 'Hecho!');
         this.limpiarImagen1();
         this.getGaleria();
       }, error => {
+        this.spinner.hide();
         console.log(error)
       }
     )
   }
 
   getAll(): void {
+    this.spinner.show();
     this._productoresService.getAllRelaciones().subscribe(
       response => {
+        this.spinner.hide();
         this.productores = response.response;
       }, error => {
+        this.spinner.hide();
         console.log(error);
       }
     )

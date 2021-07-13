@@ -14,11 +14,7 @@
             </div>
             <div class="col-lg-3">
                 <input type="text" class="form-control" name="telefono" #telefono="ngModel" maxlength="10"
-                    pattern="[0-9]+" minlength="5" [(ngModel)]="contactoCreate.telefono" placeholder="Teléfono"
-                    required>
-                <div class="error-msj rounded" *ngIf="telefono.invalid && telefono.touched">
-                    Ingresar un teléfono válido!!
-                </div>
+                    pattern="[0-9]+" minlength="5" [(ngModel)]="contactoCreate.telefono" placeholder="Teléfono">
             </div>
             <div class="col-lg-3">
                 <input type="text" class="form-control" name="celular" #celular="ngModel" maxlength="10"

@@ -1,9 +1,20 @@
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a [routerLink]="['/index']">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{nombre}}</li>
-    </ol>
-</nav>
+<div class="container">
+    <div class="row pb-0 mb-0 mt-0">
+        <div class="col-lg-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="['/index']">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{nombre}}</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-lg-6 text-end pt-0 pb-0">
+            <i class="fab fa-whatsapp-square whatsapp-ico" (click)="compartirWhatsApp()"></i>
+            <i class="fab fa-facebook-square facebook-icon" (click)="compartirFacebook()"></i>
+        </div>
+    </div>
+</div>
+
 <hr class="mt-1">
 
 <div class="container">
@@ -14,7 +25,8 @@
         <div class="col-lg-6">
             <div class="bg-white p-2 rounded">
                 <h4>{{nombre}}</h4>
-                <small><b>Actividad: </b>{{actividad}} <b class="ms-2">Tel: </b>{{telefono}} <b class="ms-2">Celular:
+                <small><b>Actividad: </b>{{actividad}} <b class="ms-2" *ngIf="telefono != ''">Tel: </b>{{telefono}} <b
+                        class="ms-2">Celular:
                     </b>{{celular}}</small>
                 <p class="mt-2">{{descripcion}}</p>
                 <p><b>Dirección: </b>{{canton}} - {{direccion}}</p>
@@ -38,11 +50,11 @@
         <div class="col-lg-6">
             <div class="table-responsive">
                 <google-map height="310px" width="420px" [center]="center1" [zoom]="zoom1">
-                  <map-marker #marker *ngFor="let markerPosition of markerPositions1" [position]="markerPosition">
-                  </map-marker>
-                  <map-info-window>Mi ubicación</map-info-window>
+                    <map-marker #marker *ngFor="let markerPosition of markerPositions1" [position]="markerPosition">
+                    </map-marker>
+                    <map-info-window>Mi ubicación</map-info-window>
                 </google-map>
-              </div>
+            </div>
         </div>
     </div>
 </div>

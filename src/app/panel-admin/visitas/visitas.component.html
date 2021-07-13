@@ -1,0 +1,36 @@
+<br>
+<div class="container">
+    <h5> <i class="far fa-eye"></i> Visitas ({{cantidadVisitas}})</h5>
+    <hr>
+    <div class="row">
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="buscartxt">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-select" id="inputGroupSelect01"  [(ngModel)]="plataforma" (change)="buscarPorPlataforma()">
+                <option value="Plataforma movil">Plataforma movil</option>
+                <option value="Pagina web">Plataforma web</option>
+              </select>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Plataforma</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of visitas|filter:buscartxt; let i = index ">
+            <td>{{i+1}}</td>
+            <td>{{x.fecha}}</td>
+            <td>{{x.hora}}</td>
+            <td>{{x.plataforma}}</td>
+          </tr>
+        </tbody>
+      </table>
+    
+</div>

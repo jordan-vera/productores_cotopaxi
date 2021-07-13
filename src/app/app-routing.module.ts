@@ -12,6 +12,7 @@ import { ResultadosPorActividadesComponent } from './index/resultados-por-activi
 import { ResultadosPorCantonesComponent } from './index/resultados-por-cantones/resultados-por-cantones.component';
 import { ResultadosPorBusquedaComponent } from './index/resultados-por-busqueda/resultados-por-busqueda.component';
 import { ProductorShowComponent } from './index/productor-show/productor-show.component';
+import { VisitasComponent } from './panel-admin/visitas/visitas.component';
 
 const routes: Routes = [
   {
@@ -101,6 +102,10 @@ const routes: Routes = [
       {
         path: 'perfil',
         component: PerfilComponent
+      },
+      {
+        path: 'visitas',
+        component: VisitasComponent
       },
     ]
   }

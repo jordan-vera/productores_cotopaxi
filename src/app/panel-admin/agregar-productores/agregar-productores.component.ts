@@ -10,6 +10,7 @@ import { ContactoService } from 'src/app/servicios/contacto.service';
 import { ProductoresService } from 'src/app/servicios/productores.service';
 import { Fecha } from 'src/app/servicios/fecha.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-agregar-productores',
@@ -39,7 +40,8 @@ export class AgregarProductoresComponent implements OnInit {
     private _actividadService: ActividadesService,
     private _contactoService: ContactoService,
     private _productoresService: ProductoresService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
@@ -52,11 +54,14 @@ export class AgregarProductoresComponent implements OnInit {
       this.sinImagen = true;
     } else {
       this.sinImagen = false;
+      this.spinner.show();
       this._contactoService.create(this.contactoCreate).subscribe(
         response => {
+          this.spinner.hide();
           let idcontacto = response.response;
           this.guardarProductor(idcontacto);
         }, error => {
+          this.spinner.hide();
           console.log(error);
         }
       )
@@ -66,12 +71,14 @@ export class AgregarProductoresComponent implements OnInit {
   guardarProductor(idcontacto: number): void {
     this.productorCreate.fecha_registro = Fecha.fechaActual() + ' ' + Fecha.horaActual();
     this.productorCreate.idcontacto = idcontacto;
+    this.spinner.show();
     this._productoresService.create(this.productorCreate).subscribe(
       response => {
+        this.spinner.hide();
         this.toastr.success('Actividad agregada correctamente!', 'Hecho!');
         this.limpiar();
-      },
-      error => {
+      }, error => {
+        this.spinner.hide();
         console.log(error);
       }
     )
@@ -135,22 +142,26 @@ export class AgregarProductoresComponent implements OnInit {
   }
 
   mostrarActividades(): void {
+    this.spinner.show();
     this._actividadService.getAll().subscribe(
       response => {
+        this.spinner.hide();
         this.actividades = response.response;
-      },
-      error => {
+      }, error => {
+        this.spinner.hide();
         console.log(error);
       }
     )
   }
 
   mostrarCantones(): void {
+    this.spinner.show();
     this._cantonService.getAll().subscribe(
       response => {
+        this.spinner.hide();
         this.cantones = response.response;
-      },
-      error => {
+      }, error => {
+        this.spinner.hide();
         console.log(error);
       }
     )

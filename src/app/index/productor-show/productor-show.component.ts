@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Galeria } from 'src/app/modelo/Galeria';
 import { GaleriaService } from 'src/app/servicios/galeria.service';
 import { global } from 'src/app/servicios/Global';
@@ -34,15 +35,18 @@ export class ProductorShowComponent implements OnInit {
   public urlGaleria: string = global.urlImage;
   public longitud: string = '';
   public latitud: string = '';
+  public url: string = '';
 
   constructor(
     private _route: ActivatedRoute,
     private _productoresService: ProductoresService,
-    private _galeriaService: GaleriaService
+    private _galeriaService: GaleriaService,
+    private spinner: NgxSpinnerService
   ) {
     this._route.params.subscribe((params: Params) => {
       this.idproductor = params.idproductor;
       this.getGaleria();
+      this.url = 'https%3A//productorescotopaxi.com/index/productor/' + this.idproductor;
     });
   }
 
@@ -53,20 +57,33 @@ export class ProductorShowComponent implements OnInit {
     this.getProductor();
   }
 
+  compartirFacebook(): void {
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + this.url, '_blank');
+  }
+
+  compartirWhatsApp(): void {
+    window.open('https://api.whatsapp.com/send?text=*' + encodeURIComponent(this.nombre) + '*%20%0A*Cantón:*%20' + this.canton + '%20%0A' +
+      this.url, '_blank');
+  }
+
   getGaleria(): void {
+    this.spinner.show();
     this._galeriaService.getOne(this.idproductor).subscribe(
       response => {
+        this.spinner.hide();
         this.galeria = response.response;
       }, error => {
+        this.spinner.hide();
         console.log(error);
       }
     )
   }
 
   getProductor(): void {
+    this.spinner.show();
     this._productoresService.getOne(this.idproductor).subscribe(
       response => {
-        console.log(response)
+        this.spinner.hide();
         this.productor = response.response;
         this.urlImage = global.urlImage + this.productor.portada;
         this.nombre = this.productor.nombre;
@@ -83,6 +100,7 @@ export class ProductorShowComponent implements OnInit {
         this.center1 = { lat: +this.latitud, lng: +this.longitud };
         this.markerPositions1 = [{ lat: +this.latitud, lng: +this.longitud }]
       }, error => {
+        this.spinner.hide();
         console.log(error)
       }
     )

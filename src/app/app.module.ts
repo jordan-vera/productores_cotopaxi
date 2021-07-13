@@ -17,6 +17,7 @@ import { ActividadesService } from './servicios/actividades.service';
 import { CantonService } from './servicios/canton.service';
 import { ContactoService } from './servicios/contacto.service';
 import { ProductoresService } from './servicios/productores.service';
+import { VisitasService } from './servicios/visitas.service';
 
 import { PanelAdminComponent } from './panel-admin/panel-admin.component';
 import { ActividadesComponent } from './panel-admin/actividades/actividades.component';
@@ -33,6 +34,7 @@ import { ResultadosPorCantonesComponent } from './index/resultados-por-cantones/
 import { ResultadosPorBusquedaComponent } from './index/resultados-por-busqueda/resultados-por-busqueda.component';
 import { ProductorShowComponent } from './index/productor-show/productor-show.component';
 import { ProductorCardComponent } from './componentes/productor-card/productor-card.component';
+import { VisitasComponent } from './panel-admin/visitas/visitas.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { ProductorCardComponent } from './componentes/productor-card/productor-c
     ResultadosPorCantonesComponent,
     ResultadosPorBusquedaComponent,
     ProductorShowComponent,
-    ProductorCardComponent
+    ProductorCardComponent,
+    VisitasComponent
   ],
   imports: [
     BrowserModule,
@@ -60,14 +63,16 @@ import { ProductorCardComponent } from './componentes/productor-card/productor-c
     ToastrModule.forRoot(),
     GoogleMapsModule,
     Ng2SearchPipeModule,
-    NgxPrintModule
+    NgxPrintModule,
+    NgxSpinnerModule
   ],
   providers: [
     AdministradorService,
     ActividadesService,
     CantonService,
     ContactoService,
-    ProductoresService
+    ProductoresService,
+    VisitasService
   ],
   bootstrap: [AppComponent],
 
